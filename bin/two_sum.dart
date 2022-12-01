@@ -34,15 +34,26 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
 
 class Solution {
   List<int> twoSum(List<int> numbers, int target) {
-    int len = numbers.length;
-    for (int i = 0; i < len; i++) {
-      for (int index = i + 1; index < len; i++) {
-        if (numbers[i] + numbers[index] == target) {
-          return [i, index];
+    final List<int> list = [...numbers];
+    list.sort();
+    for (int index = 0; index < list.length; index++) {
+      int a = list[index];
+      int b = target - a;
+      if (numbers.contains(b)) {
+        if (b != a) {
+          int aIndex = numbers.indexOf(a);
+          int bIndex = numbers.indexOf(b);
+          if (aIndex < bIndex) {
+            return [aIndex, bIndex];
+          }
+          return [bIndex, aIndex];
+        } else {
+          int aFirst = numbers.indexOf(a);
+          int aLast = numbers.lastIndexOf(a);
+          return [aFirst, aLast];
         }
       }
     }
-
     return [];
   }
 }

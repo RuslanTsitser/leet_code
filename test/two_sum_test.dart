@@ -36,4 +36,26 @@ Output: [0,1]""",
       expect(result, output);
     },
   );
+  test(
+    """Input: nums = [-3,4,3,90], target = 0
+Output: [0,2]""",
+    () {
+      const List<int> input = [-3, 4, 3, 90];
+      const int target = 0;
+      const List<int> output = [0, 2];
+      final result = Solution().twoSum(input, target);
+      expect(result, output);
+    },
+  );
+  test(
+    """Input: nums = [3,2,4], target = 6
+Output: [0,2]""",
+    () {
+      const List<int> input = [3, 2, 4];
+      const int target = 6;
+      const List<int> output = [1, 2];
+      final result = Solution().twoSum(input, target);
+      expect(result, output);
+    },
+  );
 }
